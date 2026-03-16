@@ -80,11 +80,12 @@ with row1_right:
 row2_left, row2_right = st.columns(2)
 
 with row2_left:
-    st.subheader("Inventory: On Hand vs Reorder Point")
+    st.subheader("Inventory: At-Risk Parts (On Hand vs Reorder Point)")
     if not inv_df.empty:
-        top_inv = inv_df.nlargest(15, "on_hand_qty")[["part_number", "on_hand_qty", "reorder_point"]]
+        inv_df["buffer"] = inv_df["on_hand_qty"] - inv_df["reorder_point"]
+        at_risk = inv_df.nsmallest(15, "buffer")[["part_number", "on_hand_qty", "reorder_point"]]
         fig3 = px.bar(
-            top_inv.melt(id_vars="part_number", value_vars=["on_hand_qty", "reorder_point"]),
+            at_risk.melt(id_vars="part_number", value_vars=["on_hand_qty", "reorder_point"]),
             x="part_number", y="value", color="variable", barmode="group",
             labels={"value": "Qty", "variable": "Type", "part_number": "Part"},
         )
