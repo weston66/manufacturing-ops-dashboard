@@ -108,12 +108,6 @@ Opens at `http://localhost:8501`
 
 ---
 
-## Screenshots / Demo
+## Demo
 
-_Screenshots pending. Dashboard includes:_
-
-- _Five KPI tiles: open work orders, overdue count, completion rate, low stock parts, average vendor on-time rate_
-- _Work order breakdown by status and priority (bar charts)_
-- _Inventory on-hand vs. reorder point by part number_
-- _Vendor on-time rate comparison_
-- _Manual Slack alert trigger button_
+[Watch the demo on Loom](https://www.loom.com/share/e8915ed7ddb4479fb5fea32474977cef)
