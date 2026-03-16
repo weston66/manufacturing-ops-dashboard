@@ -15,11 +15,11 @@ overdue_count = 0
 if not wo_df.empty:
     wo_df["due_date"] = pd.to_datetime(wo_df["due_date"])
     today = pd.Timestamp.today().normalize()
-    overdue = wo_df[(wo_df["due_date"] < today) & (wo_df["status"].str.lower() != "completed")]
+    overdue = wo_df[(wo_df["due_date"] < today) & (~wo_df["status"].str.lower().isin(["completed", "complete"]))]
     overdue_count = len(overdue)
     open_count = len(wo_df[wo_df["status"].str.lower().isin(["open", "in progress", "in_progress"])])
     total = len(wo_df)
-    completed = len(wo_df[wo_df["status"].str.lower() == "completed"])
+    completed = len(wo_df[wo_df["status"].str.lower().isin(["completed", "complete"])])
     completion_rate = round(completed / total * 100, 1) if total else 0
 else:
     open_count = completed = total = completion_rate = 0
