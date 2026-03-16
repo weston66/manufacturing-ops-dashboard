@@ -110,4 +110,4 @@ Opens at `http://localhost:8501`
 
 ## Demo
 
-[Watch the demo on Loom](https://www.loom.com/share/e8915ed7ddb4479fb5fea32474977cef)
+[Watch the demo on Loom](https://www.loom.com/share/69b9120779494dcfa9173ba015d9d24f)
